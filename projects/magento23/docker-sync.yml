@@ -1,0 +1,26 @@
+version: "2"
+
+options:
+
+  verbose: true
+  compose-file-path: 'docker-compose.yml'
+  cli_mode: 'auto'
+  max_attempt: 3000
+
+syncs:
+
+  project-magento23-sync:
+    notify_terminal: true
+    src: './code'
+    sync_strategy: 'unison'
+    sync_excludes: [
+      '.git',
+      '.gitignore',
+      'node_modules',
+      'var/cache',
+      'var/page_cache',
+      'var/session',
+      '.DS_Store'
+    ]
+    sync_userid: '33'
+    max_attempt: 10

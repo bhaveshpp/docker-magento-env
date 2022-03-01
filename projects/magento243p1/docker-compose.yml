@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    mem_limit: 2g
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - project-magento243p1-sync:/magento243p1:nocopy,delegated
+      - ../../nginx/conf.d:/etc/nginx/conf.d
+      - ../../nginx/magento2-cors.conf:/etc/nginx/magento2-cors.conf
+      # - ./ssls:/ssls
+    links:
+      - phpfpm74
+
+  phpfpm74:
+    container_name: phpfpm74
+    image: php:7.4-fpm
+    restart: unless-stopped
+    ports:
+      - 9000:9000
+    mem_limit: 6g
+    build:
+      context: /Users/bhavesh/Documents/magento-environment/php/74/
+      dockerfile: Dockerfile
+    volumes:
+      - project-magento243p1-sync:/magento243p1:nocopy,delegated
+
+volumes:
+
+  project-magento243p1-sync:
+    external: false
