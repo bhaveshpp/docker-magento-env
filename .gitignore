@@ -2,5 +2,5 @@
 /mysql/data/*
 /projects/magento243p1/code/*
 /projects/magento243p1/code/*
-projects/magento23/.docker-sync/*
+/projects/magento23/.docker-sync/*
 .DS_Store

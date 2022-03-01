@@ -1,0 +1,24 @@
+          ok  Starting unison for sync project-magento243p1-sync
+          ok  project-magento243p1-sync container still running, restarting unison in container
+     command  docker exec project-magento243p1-sync supervisorctl restart unison
+          ok  starting initial sync of project-magento243p1-sync
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' project-magento243p1-sync
+     command  unison -testserver /Users/bhavesh/Documents/magento-environment/projects/magento243p1/code "socket://127.0.0.1:53514"
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' project-magento243p1-sync
+     command  unison -ignore='Name .git' -ignore='Name .gitignore' -ignore='Name node_modules' -ignore='Name var/cache' -ignore='Name var/page_cache' -ignore='Name var/session' -ignore='Name .DS_Store' '/Users/bhavesh/Documents/magento-environment/projects/magento243p1/code' -auto -batch -prefer '/Users/bhavesh/Documents/magento-environment/projects/magento243p1/code' -copyonconflict socket://127.0.0.1:53514
+          ok  Synced /Users/bhavesh/Documents/magento-environment/projects/magento243p1/code
+      output  
+     success  Unison server started
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' project-magento243p1-sync
+     command  unison -ignore='Name .git' -ignore='Name .gitignore' -ignore='Name node_modules' -ignore='Name var/cache' -ignore='Name var/page_cache' -ignore='Name var/session' -ignore='Name .DS_Store' '/Users/bhavesh/Documents/magento-environment/projects/magento243p1/code' -auto -batch -prefer '/Users/bhavesh/Documents/magento-environment/projects/magento243p1/code' -copyonconflict socket://127.0.0.1:53514
+          ok  Synced /Users/bhavesh/Documents/magento-environment/projects/magento243p1/code
+      output  
+     command  docker inspect --format='{{(index (index .NetworkSettings.Ports "5000/tcp") 0).HostPort}}' project-magento243p1-sync
+     command  unison -ignore='Name .git' -ignore='Name .gitignore' -ignore='Name node_modules' -ignore='Name var/cache' -ignore='Name var/page_cache' -ignore='Name var/session' -ignore='Name .DS_Store' '/Users/bhavesh/Documents/magento-environment/projects/magento243p1/code' -auto -batch -prefer '/Users/bhavesh/Documents/magento-environment/projects/magento243p1/code' -copyonconflict socket://127.0.0.1:53514 -repeat watch
+Unison 2.51.5 (ocaml 4.12.0): Contacting server...
+Connected [//9fb4e81494d2//app_sync -> //Jeets-iMac.local//Users/bhavesh/Documents/magento-environment/projects/magento243p1/code]
+ 
+Looking for changes
+  Waiting for changes from server
+Reconciling changes
+Nothing to do: replicas have not changed since last sync.
